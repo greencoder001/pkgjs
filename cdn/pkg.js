@@ -15,7 +15,7 @@ const pkg = {
     var json = {};
     fetch(pkg.cms.url + pkg.cms.index)
       .then(response => response.json())
-      .then(data => data.forEach((package, i) => {
+      .then(data => data.forEach((package, i) function () {
         if (package.id == module) {
           // Found the Package
           //Dom Pkg
@@ -27,7 +27,8 @@ const pkg = {
           pkgscript.classList.add('pkgjs-imported');
           document.head.appendChild(pkgscript);
         }
-      }););
+      }
+    ););
   }
 };
 const include = pkg.include;
