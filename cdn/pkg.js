@@ -15,20 +15,19 @@ const pkg = {
     var json = {};
     fetch(pkg.cms.url + pkg.cms.index)
       .then(response => response.json())
-      .then(data => json = data);
-    json.forEach((package, i) => {
-      if (package.id == module) {
-        // Found the Package
-        //Dom Pkg
-        console.log('[PKG] Adding new Package named ' + package.name + '.');
-        //Add to DOM:
-        var pkgscript = document.createElement('script');
-        pkgscript.src = package.url;
-        pkgscript.type = 'text/javascript';
-        pkgscript.classList.add('pkgjs-imported');
-        document.head.appendChild(pkgscript);
-      }
-    });
+      .then(data => data.forEach((package, i) => {
+        if (package.id == module) {
+          // Found the Package
+          //Dom Pkg
+          console.log('[PKG] Adding new Package named ' + package.name + '.');
+          //Add to DOM:
+          var pkgscript = document.createElement('script');
+          pkgscript.src = package.url;
+          pkgscript.type = 'text/javascript';
+          pkgscript.classList.add('pkgjs-imported');
+          document.head.appendChild(pkgscript);
+        }
+      }););
   }
 };
 const include = pkg.include;
