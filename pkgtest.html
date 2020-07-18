@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PKG.js Test site</title>
+    <script src="https://greencoder001.github.io/pkgjs/cdn/pkg.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>PKG.js Test site</h1>
+    <span>Make sure that the field below is filled with <code>pkg test was <b>success</b>!</code></span>
+    <br><br><i style="background:#56c0d5;color:#fff;padding:0.5%;border-radius:3px;" id="test">pkg test was <b>not success</b>!</i>
+    <script type="text/javascript">
+      include('pkg-test');
+      document.getElementById('test').innerText = pkgTest.testString;
+    </script>
+  </body>
+</html>
